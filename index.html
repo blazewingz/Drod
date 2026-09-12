@@ -79,8 +79,11 @@
         window.addEventListener('keydown', e => keys[e.code] = true);
         window.addEventListener('keyup', e => keys[e.code] = false);
 
-        // Entities
-        let ship, lasers, asteroids, particles;
+        // Entities properly initialized to prevent length errors on load
+        let ship;
+        let lasers = [];
+        let asteroids = [];
+        let particles = [];
 
         function initGame() {
             if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
